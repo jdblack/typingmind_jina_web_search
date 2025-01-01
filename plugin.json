@@ -1,0 +1,40 @@
+{
+  "id": "jina_web_reader",
+  "version": "0.1",
+  "uuid": "7D196506-28A2-4B99-A75D-E5710765E884",
+  "emoji": "🧩",
+  "title": "Jina Web Search",
+  "iconURL": "https://jina.ai/Jina%20-%20Dark.svg",
+  "syncedAt": "2025-01-01T13:42:03.735Z",
+  "deletedAt": null,
+  "outputType": "respond_to_ai",
+  "oauthConfig": null,
+  "overviewMarkdown": "This plugin searches for web pages with jina.ai\n",
+  "authenticationType": "AUTH_TYPE_NONE",
+  "implementationType": "javascript",
+  "openaiSpec": {
+    "name": "jina_web_search",
+    "parameters": {
+      "type": "object",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "search_phrase": {
+          "type": "string",
+          "description": "The phrase to search for on the web"
+        }
+      }
+    },
+    "description": "Search the web for pages matching a phraes with jina.ai"
+  },
+  "userSettings": [
+    {
+      "name": "jinaApiKey",
+      "type": "password",
+      "label": "Jina API Key",
+      "required": true,
+      "description": "Your API key for accessing Jina.ai services"
+    }
+  ]
+}
