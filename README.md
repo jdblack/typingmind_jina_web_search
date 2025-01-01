@@ -1,7 +1,7 @@
 
 ## Overview
 
-This TypingMind Plugin uses the Jina.AI web reader to search for matching
+This TypingMind Plugin uses the Jina.AI web search to search for matching
 webpages for your LLM chats.
 
 ## Usage

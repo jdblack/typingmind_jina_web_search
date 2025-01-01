@@ -1,17 +1,17 @@
-async function jina_web_reader(params, userSettings) {
-  const { url, includeImages = false, importToChat = true } = params;
+async function jina_web_search(params, userSettings) {
+  const { phrase } = params;
+  const { url, includeImages = false, numResults = 5 } = params;
   const { jinaApiKey } = userSettings;
 
-  if (!url) {
-    throw new Error('URL is required');
+  if (!phrase) {
+    throw new Error('I need to know what to search for!');
   }
 
   try {
-    const response = await fetch(`https://r.jina.ai/${encodeURIComponent(url)}`, {
+    const response = await fetch(`https://s.jina.ai/${encodeURIComponent(url)}?count=${numResults}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${jinaApiKey}`,
-        'X-With-Links-Summary': 'true',
         'X-Retain-Images': includeImages.toString()
       }
     });
