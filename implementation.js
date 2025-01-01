@@ -1,14 +1,14 @@
 async function jina_web_search(params, userSettings) {
-  const { phrase } = params;
+  const { search_phrase } = params;
   const { url, includeImages = false, numResults = 5 } = params;
   const { jinaApiKey } = userSettings;
 
-  if (!phrase) {
+  if (!search_phrase) {
     throw new Error('I need to know what to search for!');
   }
 
   try {
-    const response = await fetch(`https://s.jina.ai/${encodeURIComponent(url)}?count=${numResults}`, {
+    const response = await fetch(`https://s.jina.ai/${encodeURIComponent(search_phrase)}?count=${numResults}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${jinaApiKey}`,
