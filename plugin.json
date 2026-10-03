@@ -1,6 +1,6 @@
 {
   "id": "jina_web_search",
-  "version": "0.1",
+  "version": "0.1.1",
   "uuid": "7D196506-28A2-4B99-A75D-E5710765E884",
   "emoji": "🧩",
   "title": "Jina Web Search",
@@ -9,16 +9,18 @@
   "deletedAt": null,
   "outputType": "respond_to_ai",
   "oauthConfig": null,
-  "overviewMarkdown": "This plugin searches for web pages with jina.ai\n",
+  "overviewMarkdown": "Perform web searches via jina.ai\n",
   "authenticationType": "AUTH_TYPE_NONE",
   "implementationType": "javascript",
   "openaiSpec": {
     "name": "jina_web_search",
+    "description": "Search the web via jina.ai for pages matching a given phrase",
     "parameters": {
       "type": "object",
       "required": [
-        "url"
+        "search_phrase"
       ],
+      "additionalProperties": false,
       "properties": {
         "search_phrase": {
           "type": "string",
@@ -26,16 +28,16 @@
         },
         "includeImages": {
           "type": "boolean",
-          "description": "Whether to include images in the response"
+          "description": "Whether to include images in the response (defaults to false)"
         },
         "numResults": {
           "type": "integer",
-          "description": "The number of search results to return"
+          "description": "The number of search results to return (1-20, defaults to 5)",
+          "minimum": 1,
+          "maximum": 20
         }
-
       }
-    },
-    "description": "Search the web for pages matching a phraes with jina.ai"
+    }
   },
   "userSettings": [
     {
